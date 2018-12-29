@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hnkhtmdocker/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run hnkhtmdocker/docker-react npm run test -- --coverage
